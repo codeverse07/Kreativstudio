@@ -121,7 +121,7 @@ const About = () => {
         </div>
 
         {/* Mobile Text Block */}
-        <div className="px-6 space-y-6 text-foreground/80 text-[15px] leading-relaxed font-medium">
+        <div className="px-6 space-y-6 text-foreground/80 text-[15px] leading-relaxed font-medium pb-12">
             <p>
               We are a boutique creative studio dedicated to the art of luxury brand 
               communication. Our mission is to bridge the gap between high-end 

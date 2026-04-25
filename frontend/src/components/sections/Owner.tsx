@@ -137,7 +137,7 @@ const Owner = () => {
       {/* ========================== */}
       {/* MOBILE APP-LIKE VIEW (lg- ) */}
       {/* ========================== */}
-      <div className="w-full relative z-10 block lg:hidden pb-10 -mt-10">
+      <div className="w-full relative z-10 block lg:hidden pb-10">
         {/* Floating Card Profile Header */}
         <div className="pt-0 px-5 mb-8">
           <div className="relative w-full aspect-[4/5] sm:max-h-[65vh] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/20">
