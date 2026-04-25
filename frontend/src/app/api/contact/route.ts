@@ -9,11 +9,21 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'All fields are required.' }, { status: 400 });
     }
 
+    const EMAIL_USER = process.env.EMAIL_USER || 'itsharsh0624@gmail.com';
+    const EMAIL_PASS = process.env.EMAIL_PASS;
+
+    if (!EMAIL_PASS) {
+      console.error('EMAIL_PASS environment variable is missing!');
+      return NextResponse.json({ error: 'Server configuration error.' }, { status: 500 });
+    }
+
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, // true for port 465
       auth: {
-        user: process.env.EMAIL_USER || 'itsharsh0624@gmail.com',
-        pass: process.env.EMAIL_PASS,
+        user: EMAIL_USER,
+        pass: EMAIL_PASS,
       },
     });
 
