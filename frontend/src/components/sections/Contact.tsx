@@ -24,9 +24,12 @@ const Contact = () => {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Submission failed:', response.status, errorData);
         setStatus('error');
       }
     } catch (error) {
+      console.error('Fetch error:', error);
       setStatus('error');
     }
   };

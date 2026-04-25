@@ -15,15 +15,10 @@ app.use(bodyParser.json());
 // Transporter setup
 console.log('Attempting to connect with:', process.env.EMAIL_USER);
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, // Use TLS
+    service: 'gmail',
     auth: {
         user: process.env.EMAIL_USER || 'itsharsh0624@gmail.com',
         pass: process.env.EMAIL_PASS
-    },
-    tls: {
-        rejectUnauthorized: false
     }
 });
 
@@ -35,6 +30,11 @@ transporter.verify(function (error, success) {
     } else {
         console.log('Server is ready to take our messages');
     }
+});
+
+// Health check
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok', message: 'Backend is reachable' });
 });
 
 // Routes
@@ -63,7 +63,11 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-// Start server
-app.listen(PORT, () => {
+// Support for Vercel Serverless Functions
+if (require.main === module) {
+  app.listen(PORT, () => {
     console.log(`Backend server is running on port ${PORT}`);
-});
+  });
+}
+
+module.exports = app;

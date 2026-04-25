@@ -53,7 +53,7 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-24 bg-background transition-colors duration-500">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-6xl font-bold mb-4">
               Selected <span className="text-gold">Works</span>
@@ -63,11 +63,11 @@ const Portfolio = () => {
               with the premium luxury market.
             </p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-x-3 gap-y-3 md:gap-4 justify-start md:justify-end">
             {['All', 'Beauty', 'Jewelry', 'Fashion', 'Cosmetics'].map((cat) => (
               <button
                 key={cat}
-                className="text-[10px] uppercase tracking-widest px-6 py-2 border border-border hover:border-gold hover:text-gold transition-all rounded-full font-bold"
+                className="text-[9px] md:text-[10px] uppercase tracking-widest px-4 md:px-6 py-2 border border-border hover:border-gold hover:text-gold transition-all rounded-full font-bold whitespace-nowrap"
               >
                 {cat}
               </button>

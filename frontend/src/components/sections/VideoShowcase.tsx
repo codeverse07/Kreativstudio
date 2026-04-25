@@ -57,7 +57,7 @@ const VideoShowcase = () => {
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+                className="w-full h-full object-cover lg:grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
               />
               
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-700 p-10 flex flex-col justify-end">
