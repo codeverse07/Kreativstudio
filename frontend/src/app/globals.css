@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-nude: #d4b895;
+  --color-gold: #d4af37;
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Outfit', serif;
+}
+
+:root {
+  --background: #050505;
+  --foreground: #f0f0f0;
+  --surface: #111111;
+  --border: rgba(212, 175, 55, 0.15);
+  --nude: #d4b895;
+  --gold: #d4af37;
+}
+
+.dark {
+  --background: #050505;
+  --foreground: #f0f0f0;
+  --surface: #111111;
+  --border: rgba(212, 175, 55, 0.15);
+}
+
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    opacity: 0.8;
+  }
+  
+  .glass-card {
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    transition: all 0.5s ease;
+  }
+
+  .premium-border {
+     position: relative;
+  }
+
+  .premium-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    background: linear-gradient(45deg, var(--gold), transparent, var(--nude)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
+  }
+
+  .premium-border:hover::after {
+    opacity: 1;
+  }
+}
+
+
+/* Custom scroll snap for Video Showcase */
+.snap-y-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh;
+}
