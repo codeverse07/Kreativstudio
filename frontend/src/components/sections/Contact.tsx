@@ -13,7 +13,8 @@ const Contact = () => {
     setStatus('sending');
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || '/_/backend/api/contact';
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
